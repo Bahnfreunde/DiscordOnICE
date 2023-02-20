@@ -13,6 +13,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("net.dv8tion:JDA:5.0.0-beta.4")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }
 
 tasks.test {
