@@ -14,46 +14,11 @@ class Verification : ListenerAdapter() {
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if(event.channel.type == ChannelType.PRIVATE) {
             if (event.message.contentRaw == "!verify") {
-                apiRequest()
+                // do api request
                 event.channel.sendMessage("Working").queue()
             }
         } else {
             return
         }
-    }
-}
-
-fun apiRequest() {
-
-    /**
-     * get
-     * https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/station/{pattern}
-     * Beschreibung
-     *
-     * This public interface allows access to information about a station.
-     * Sicherheit
-     * ClientSecret
-     * (Typ: Geheimer API-Schlüssel)
-     * DB-Api-Key
-     * apiKey befindet sich unter header
-     * ClientId
-     * (Typ: API-Schlüssel)
-     * DB-Client-Id
-     * apiKey befindet sich unter header
-     */
-
-    val baseurl = "https://apis.deutschebahn.com"
-    val path = "/db-api-marketplace/apis/timetables/v1/"
-    val station = ""
-
-    val client = OkHttpClient()
-
-    val request = Request.Builder()
-        .url(url)
-        .build()
-
-    client.newCall(request).execute().use { response ->
-        val responseBody = response.body!!.string()
-        println(responseBody)
     }
 }
