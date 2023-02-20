@@ -13,5 +13,5 @@ class Main {
 
 fun main(args: Array<String>) {
     val jda = JDABuilder.createDefault(Main.dotenv["TOKEN"])
-        .addEventListeners(Ready()).setDisabledIntents(null).build()
+        .addEventListeners(Ready()).build()
 }

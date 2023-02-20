@@ -13,7 +13,8 @@ class Verification : ListenerAdapter() {
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if(event.channel.type == ChannelType.PRIVATE) {
             if (event.message.contentRaw == "!verify") {
-                
+                apiRequest()
+                event.channel.sendMessage("Working").queue()
             }
         } else {
             return
